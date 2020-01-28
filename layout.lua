@@ -8,11 +8,28 @@ layout = {
             end
         },
         {
+            name = {"Google Chrome"},
+            func = function(index, window)
+                window:moveToScreen(hs.screen.primaryScreen():next())
+                pushWindow(window, 0, 0, 1, 1)
+            end
+        },
+        {
             name = {'IntelliJ IDEA'},
             screen = "primary",
             func = function(index, window)
                 window:moveToScreen(hs.screen.primaryScreen())
                 pushWindow(window, 0, 0, (2/3), 1)
+            end
+        },
+    },
+
+    vscode = {
+        {
+            name = {"iTerm"},
+            func = function(index, window)
+                window:moveToScreen(hs.screen.primaryScreen())
+                pushWindow(window, (2/3), 0, (1/3), 1)
             end
         },
         {
@@ -21,7 +38,15 @@ layout = {
                 window:moveToScreen(hs.screen.primaryScreen():next())
                 pushWindow(window, 0, 0, 1, 1)
             end
-        }
+        },
+        {
+            name = {'Code'},
+            screen = "primary",
+            func = function(index, window)
+                window:moveToScreen(hs.screen.primaryScreen())
+                pushWindow(window, 0, 0, (2/3), 1)
+            end
+        },
     },
 
     chat = {
