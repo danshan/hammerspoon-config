@@ -1,0 +1,6 @@
+hs.urlevent.bind("idea", function(eventName, params)
+    applyLayouts(layout.idea)
+end)
+hs.urlevent.bind("chat", function(eventName, params)
+    applyLayouts(layout.chat)
+end)
