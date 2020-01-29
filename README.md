@@ -48,15 +48,15 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
-| `maximize` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>M</kbd> |
-| `smaller` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>-</kbd> |
-| `larger` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>=</kbd> |
-| `left half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>←</kbd> |
-| `right half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>→</kbd> |
-| `up half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↑</kbd> |
-| `down half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↓</kbd> |
-| `fit screen height` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>H</kbd> |
-| `fit screen width` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>W</kbd> |
+| `maximize` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>M</kbd> |
+| `smaller` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>-</kbd> |
+| `larger` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>=</kbd> |
+| `left half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>←</kbd> |
+| `right half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>→</kbd> |
+| `up half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↑</kbd> |
+| `down half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↓</kbd> |
+| `fit screen height` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>H</kbd> |
+| `fit screen width` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>W</kbd> |
 
 * Window Movement
 
