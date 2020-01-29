@@ -35,39 +35,39 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | `Safari` | <kbd>⌥</kbd> | <kbd>2</kbd> |
 | `龙信` | <kbd>⌥</kbd> | <kbd>3</kbd> |
 | `WeChat` | <kbd>⌥</kbd> | <kbd>4</kbd> |
-| `WebStome` | <kbd>⌥</kbd> | <kbd>d</kbd> |
-| `Sublime Text` | <kbd>⌥</kbd> | <kbd>e</kbd> |
-| `Slack` | <kbd>⌥</kbd> | <kbd>n</kbd> |
-| `BearyChat` | <kbd>⌥</kbd> | <kbd>b</kbd> |
-| `Reminders` | <kbd>⌥</kbd> | <kbd>r</kbd> |
-| `IntelliJ IDEA` | <kbd>⌥</kbd> | <kbd>s</kbd> |
-| `Tweetbot` | <kbd>⌥</kbd> | <kbd>t</kbd> |
-| `KeyPassXC` | <kbd>⌥</kbd> | <kbd>w</kbd> |
+| `WebStome` | <kbd>⌥</kbd> | <kbd>D</kbd> |
+| `Sublime Text` | <kbd>⌥</kbd> | <kbd>E</kbd> |
+| `Slack` | <kbd>⌥</kbd> | <kbd>N</kbd> |
+| `BearyChat` | <kbd>⌥</kbd> | <kbd>B</kbd> |
+| `Reminders` | <kbd>⌥</kbd> | <kbd>R</kbd> |
+| `IntelliJ IDEA` | <kbd>⌥</kbd> | <kbd>S</kbd> |
+| `Tweetbot` | <kbd>⌥</kbd> | <kbd>T</kbd> |
+| `KeyPassXC` | <kbd>⌥</kbd> | <kbd>K</kbd> |
 
 * Window Resize
 
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
-| `maximize` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>m</kbd> |
+| `maximize` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>M</kbd> |
 | `smaller` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>-</kbd> |
 | `larger` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>=</kbd> |
 | `left half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>←</kbd> |
 | `right half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>→</kbd> |
 | `up half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↑</kbd> |
 | `down half` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↓</kbd> |
-| `fit screen height` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>h</kbd> |
-| `fit screen width` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>w</kbd> |
+| `fit screen height` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>H</kbd> |
+| `fit screen width` window | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>W</kbd> |
 
 * Window Movement
 
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
-| move `<` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>h</kbd> |
-| move `>` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>l</kbd> |
-| move `^` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>k</kbd> |
-| move `v` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>j</kbd> |
-| move to `next screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>n</kbd> |
-| move to `previous screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>p</kbd> |
+| move `<` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>H</kbd> |
+| move `>` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>L</kbd> |
+| move `^` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>K</kbd> |
+| move `v` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>J</kbd> |
+| move to `next screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>N</kbd> |
+| move to `previous screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>P</kbd> |
 
 ## Contribution
 
