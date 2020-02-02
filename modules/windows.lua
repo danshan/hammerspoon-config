@@ -205,3 +205,10 @@ function moveToNextScreen()
     local nextScreen = screen:next()
     window:moveToScreen(nextScreen)
 end
+
+function moveToPreviousScreen()
+    local window = hs.window.focusedWindow()
+    local screen = window:screen()
+    local nextScreen = screen:previous()
+    window:moveToScreen(nextScreen)
+end
