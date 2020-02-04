@@ -2,7 +2,7 @@
 hs.fnutils.each({
     { key = "`", app = "iTerm" },
     { key = ",", app = "Quiver" },
-    { key = ".", app = "Mail" },
+    { key = ".", app = "Spark" },
     { key = "/", app = "Finder" },
     { key = ";", app = "Preview" },
     { key = "1", app = "Google Chrome" },
