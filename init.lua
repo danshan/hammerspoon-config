@@ -11,6 +11,7 @@ require("modules/apps")
 require("modules/windows")
 require("modules/screens")
 require("modules/layout")
+require("modules/mouse")
 
 require("keybind")
 require("urlbind")
