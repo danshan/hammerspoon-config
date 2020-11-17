@@ -27,13 +27,13 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
 | `iTerm` | <kbd>⌥</kbd> | <kbd>~</kbd> |
-| `Quiver` | <kbd>⌥</kbd> | <kbd>,</kbd> |
+| `Joplin` | <kbd>⌥</kbd> | <kbd>,</kbd> |
 | `Mail` | <kbd>⌥</kbd> | <kbd>.</kbd> |
 | `Finder` | <kbd>⌥</kbd> | <kbd>/</kbd> |
 | `Preview` | <kbd>⌥</kbd> | <kbd>;</kbd> |
 | `Google Chrome` | <kbd>⌥</kbd> | <kbd>1</kbd> |
 | `Safari` | <kbd>⌥</kbd> | <kbd>2</kbd> |
-| `龙信` | <kbd>⌥</kbd> | <kbd>3</kbd> |
+| `Longchat` | <kbd>⌥</kbd> | <kbd>3</kbd> |
 | `WeChat` | <kbd>⌥</kbd> | <kbd>4</kbd> |
 | `WebStome` | <kbd>⌥</kbd> | <kbd>D</kbd> |
 | `Sublime Text` | <kbd>⌥</kbd> | <kbd>E</kbd> |
@@ -42,7 +42,7 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | `Reminders` | <kbd>⌥</kbd> | <kbd>R</kbd> |
 | `IntelliJ IDEA` | <kbd>⌥</kbd> | <kbd>S</kbd> |
 | `Tweetbot` | <kbd>⌥</kbd> | <kbd>T</kbd> |
-| `KeyPassXC` | <kbd>⌥</kbd> | <kbd>K</kbd> |
+| `KeyPassXC` | <kbd>⌥</kbd> | <kbd>W</kbd> |
 
 * Window Resize
 
