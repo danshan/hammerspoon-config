@@ -14,7 +14,7 @@ hs.fnutils.each({
     { key = "4", app = "WeChat" },
     { key = "d", app = "WebStorm" },
     { key = "e", app = "Sublime Text" },
-    { key = "m", app = "Lift" },
+    { key = "l", app = "Lift" },
     { key = "m", app = "Spotify" },
     { key = "n", app = "Telegram" },
     { key = "b", app = "BearyChat" },
