@@ -57,7 +57,7 @@ layout = {
             end
         },
         {
-            name = {'龙信'},
+            name = {'云图梭'},
             func = function(index, window)
                 pushWindow(window, 0, 0, (1/2), 1)
             end

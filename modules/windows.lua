@@ -11,21 +11,32 @@ function leftHalfCurrentWindow()
 
     local frameOrigin = window:frame()
 
-    local frame1 = window:frame()
-    frame1.w = math.floor(max.w / 2)
+    local frame3_4 = window:frame()
+    frame3_4.w = math.floor(max.w / 4 * 3)
 
-    local frame2 = window:frame()
-    frame2.w = math.floor(max.w / 3)
+    local frame2_3 = window:frame()
+    frame2_3.w = math.floor(max.w / 3 * 2)
 
-    local frame3 = window:frame()
-    frame3.w = math.floor(max.w / 4)
+    local frame1_2 = window:frame()
+    frame1_2.w = math.floor(max.w / 2 * 1)
 
-    local frame = frame1
-    if frameEquals(frameOrigin, frame1) then
-        frame = frame2
-    end
-    if frameEquals(frameOrigin, frame2) then
-        frame = frame3
+    local frame1_3 = window:frame()
+    frame1_3.w = math.floor(max.w / 3 * 1)
+
+    local frame1_4 = window:frame()
+    frame1_4.w = math.floor(max.w / 4 * 1)
+
+    local all_frames = { frame3_4, frame2_3, frame1_2, frame1_3, frame1_4 }
+    local frame = all_frames[1]
+    for key, value in ipairs(all_frames) do
+        if frameEquals(frameOrigin, value) then
+            if key == #all_frames then
+                frame = all_frames[1]
+            else 
+                frame = all_frames[key + 1]
+            end
+            break
+        end
     end
 
     frame.x = max.x
@@ -42,24 +53,37 @@ function rightHalfCurrentWindow()
 
     local frameOrigin = window:frame()
 
-    local frame1 = window:frame()
-    frame1.x = max.x + math.floor(max.w / 2)
-    frame1.w = math.floor(max.w / 2)
+    local frame3_4 = window:frame()
+    frame3_4.x = max.x + math.floor(max.w / 4 * 1)
+    frame3_4.w = math.floor(max.w / 4 * 3)
 
-    local frame2 = window:frame()
-    frame2.x = max.x + math.floor(max.w / 3) * 2
-    frame2.w = math.floor(max.w / 3)
+    local frame2_3 = window:frame()
+    frame2_3.x = max.x + math.floor(max.w / 3 * 1)
+    frame2_3.w = math.floor(max.w / 3 * 2)
 
-    local frame3 = window:frame()
-    frame3.x = max.x + math.floor(max.w / 4) * 3
-    frame3.w = math.floor(max.w / 4)
+    local frame1_2 = window:frame()
+    frame1_2.x = max.x + math.floor(max.w / 2 * 1)
+    frame1_2.w = math.floor(max.w / 2 * 1)
 
-    local frame = frame1
-    if frameEquals(frameOrigin, frame1) then
-        frame = frame2
-    end
-    if frameEquals(frameOrigin, frame2) then
-        frame = frame3
+    local frame1_3 = window:frame()
+    frame1_3.x = max.x + math.floor(max.w / 3 * 2)
+    frame1_3.w = math.floor(max.w / 3 * 1)
+
+    local frame1_4 = window:frame()
+    frame1_4.x = max.x + math.floor(max.w / 4 * 3)
+    frame1_4.w = math.floor(max.w / 4 * 1)
+
+    local all_frames = { frame3_4, frame2_3, frame1_2, frame1_3, frame1_4 }
+    local frame = all_frames[1]
+    for key, value in ipairs(all_frames) do
+        if frameEquals(frameOrigin, value) then
+            if key == #all_frames then
+                frame = all_frames[1]
+            else 
+                frame = all_frames[key + 1]
+            end
+            break
+        end
     end
 
     frame.y = frame.y
