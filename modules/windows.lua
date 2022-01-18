@@ -106,21 +106,26 @@ function upHalfCurrentWindow()
 
     local frameOrigin = window:frame()
 
-    local frame1 = window:frame()
-    frame1.h = math.floor(max.h / 2)
+    local frame2_3 = window:frame()
+    frame2_3.h = math.floor(max.h / 3 * 2)
 
-    local frame2 = window:frame()
-    frame2.h = math.floor(max.h / 3)
+    local frame1_2 = window:frame()
+    frame1_2.h = math.floor(max.h / 2 * 1)
 
-    local frame3 = window:frame()
-    frame3.h = math.floor(max.h / 4)
+    local frame1_3 = window:frame()
+    frame1_3.h = math.floor(max.h / 3 * 1)
 
-    local frame = frame1
-    if frameEquals(frameOrigin, frame1) then
-        frame = frame2
-    end
-    if frameEquals(frameOrigin, frame2) then
-        frame = frame3
+    local all_frames = { frame2_3, frame1_2, frame1_3 }
+    local frame = all_frames[1]
+    for key, value in ipairs(all_frames) do
+        if frameEquals(frameOrigin, value) then
+            if key == #all_frames then
+                frame = all_frames[1]
+            else 
+                frame = all_frames[key + 1]
+            end
+            break
+        end
     end
 
     frame.x = frame.x
@@ -137,24 +142,29 @@ function downHalfCurrentWindow()
 
     local frameOrigin = window:frame()
 
-    local frame1 = window:frame()
-    frame1.y = max.y + math.floor(max.h / 2)
-    frame1.h = math.floor(max.h / 2)
+    local frame2_3 = window:frame()
+    frame2_3.y = max.y + math.floor(max.h / 3 * 1)
+    frame2_3.h = math.floor(max.h / 3 * 2)
 
-    local frame2 = window:frame()
-    frame2.y = max.y + math.floor(max.h / 3) * 2
-    frame2.h = math.floor(max.h / 3)
+    local frame1_2 = window:frame()
+    frame1_2.y = max.y + math.floor(max.h / 2 * 1)
+    frame1_2.h = math.floor(max.h / 2 * 1)
 
-    local frame3 = window:frame()
-    frame3.y = max.y + math.floor(max.h / 4) * 3
-    frame3.h = math.floor(max.h / 4)
+    local frame1_3 = window:frame()
+    frame1_3.y = max.y + math.floor(max.h / 3 * 2)
+    frame1_3.h = math.floor(max.h / 3 * 1)
 
-    local frame = frame1
-    if frameEquals(frameOrigin, frame1) then
-        frame = frame2
-    end
-    if frameEquals(frameOrigin, frame2) then
-        frame = frame3
+    local all_frames = { frame2_3, frame1_2, frame1_3 }
+    local frame = all_frames[1]
+    for key, value in ipairs(all_frames) do
+        if frameEquals(frameOrigin, value) then
+            if key == #all_frames then
+                frame = all_frames[1]
+            else 
+                frame = all_frames[key + 1]
+            end
+            break
+        end
     end
 
     frame.x = frame.x
