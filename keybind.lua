@@ -10,7 +10,7 @@ hs.fnutils.each({
     -- { key = "1", app = "Brave Browser"},
 --    { key = "1", app = "Chromium"},
     { key = "2", app = "Safari" },
-    { key = "3", app = "Feishu" },
+    { key = "3", app = "Lark" },
     { key = "4", app = "WeChat" },
     { key = "d", app = "WebStorm" },
     { key = "e", app = "Sublime Text" },
