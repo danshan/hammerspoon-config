@@ -1,4 +1,4 @@
-# hammerspoon-config
+:     # hammerspoon-config
 
 > Spectacle Window Manager Keybindings For Hammerspoon
 
@@ -27,7 +27,7 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
 | `iTerm` | <kbd>⌥</kbd> | <kbd>~</kbd> |
-| `Joplin` | <kbd>⌥</kbd> | <kbd>,</kbd> |
+| `Craft` | <kbd>⌥</kbd> | <kbd>,</kbd> |
 | `Mail` | <kbd>⌥</kbd> | <kbd>.</kbd> |
 | `Finder` | <kbd>⌥</kbd> | <kbd>/</kbd> |
 | `Preview` | <kbd>⌥</kbd> | <kbd>;</kbd> |
@@ -35,6 +35,7 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | `Safari` | <kbd>⌥</kbd> | <kbd>2</kbd> |
 | `Longchat` | <kbd>⌥</kbd> | <kbd>3</kbd> |
 | `WeChat` | <kbd>⌥</kbd> | <kbd>4</kbd> |
+| `iStatistica Pro` | <kbd>⌥</kbd> | <kbd>A</kbd> |
 | `WebStome` | <kbd>⌥</kbd> | <kbd>D</kbd> |
 | `Sublime Text` | <kbd>⌥</kbd> | <kbd>E</kbd> |
 | `Slack` | <kbd>⌥</kbd> | <kbd>N</kbd> |
