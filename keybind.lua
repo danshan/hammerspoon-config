@@ -13,6 +13,7 @@ hs.fnutils.each({
     { key = "2", app = "Safari" },
     { key = "3", app = "Lark" },
     { key = "4", app = "WeChat" },
+    { key = "5", app = "企业微信" },
     { key = "a", app = "iStatistica Pro" },
     { key = "d", app = "WebStorm" },
     { key = "e", app = "Sublime Text" },
