@@ -1,7 +1,13 @@
 
 function maximizeCurrentWindow()
     local window = hs.window.focusedWindow()
-    window:maximize()
+    local screenFrame = window:screen():frame()
+
+    window:setTopLeft(screenFrame.x, screenFrame.y)
+    hs.timer.usleep(0.2 * 1000 * 1000)
+
+    window:setFrame(screenFrame)
+--    window:maximize()
 end
 
 function leftHalfCurrentWindow()
