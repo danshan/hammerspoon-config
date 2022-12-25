@@ -27,7 +27,8 @@ hs.fnutils.each({
     -- { key = "s", app = "IntelliJ IDEA EAP" },
     { key = "t", app = "Tweetbot" },
     { key = "v", app = "Visual Studio Code" },
-    { key = "w", app = "KeePassXC" },
+    -- { key = "w", app = "KeePassXC" },
+    { key = "w", app = "Strongbox" },
 }, function(object)
     launchApp(mash.app, object)
 end)
