@@ -1,101 +1,93 @@
+local logger = hs.logger.new("window", "verbose")
 
-function maximizeCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local screenFrame = window:screen():frame()
+local windowMeta = {}
+local window = require('hs.window')
+local grid = require('hs.grid')
+grid.setMargins('0, 0')
 
-    window:setTopLeft(screenFrame.x, screenFrame.y)
-    hs.timer.usleep(0.2 * 1000 * 1000)
+local module = {}
 
-    window:setFrame(screenFrame)
---    window:maximize()
+-- Set screen watcher, in case you connect a new monitor, or unplug a monitor
+screen = {}
+screenArr = {}
+local screenWatcher = hs.screen.watcher.new(function()
+    screens = hs.screen.allScreens()
+end)
+screenWatcher:start()
+
+-- Construct list of screens
+local indexDiff = 0
+for index = 1, #hs.screen.allScreens() do
+    local xIndex, yIndex = hs.screen.allScreens()[index]:position()
+    logger.i("found screen: " .. hs.screen.allScreens()[index]:name() .. "pos: " .. xIndex .. ", " .. yIndex)
+    screenArr[xIndex] = hs.screen.allScreens()[index]
 end
 
-function leftHalfCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local max = screen:frame()
+-- Find lowest screen index, save to indexDiff if negative
+hs.fnutils.each(screenArr, function(e)
+    local currentIndex = hs.fnutils.indexOf(screenArr, e)
+    if currentIndex < 0 and currentIndex < indexDiff then
+        indexDiff = currentIndex
+    end
+end)
 
-    local frameOrigin = window:frame()
-
-    local frame3_4 = window:frame()
-    frame3_4.w = math.floor(max.w / 4 * 3)
-
-    local frame2_3 = window:frame()
-    frame2_3.w = math.floor(max.w / 3 * 2)
-
-    local frame1_2 = window:frame()
-    frame1_2.w = math.floor(max.w / 2 * 1)
-
-    local frame1_3 = window:frame()
-    frame1_3.w = math.floor(max.w / 3 * 1)
-
-    local frame1_4 = window:frame()
-    frame1_4.w = math.floor(max.w / 4 * 1)
-
-    local all_frames = { frame3_4, frame2_3, frame1_2, frame1_3, frame1_4 }
-    local frame = all_frames[1]
-    for key, value in ipairs(all_frames) do
-        if frameEquals(frameOrigin, value) then
-            if key == #all_frames then
-                frame = all_frames[1]
-            else 
-                frame = all_frames[key + 1]
-            end
-            break
+-- Set screen grid depending on resolution
+-- TODO: set grid according to pixels
+for _index, screen in pairs(hs.screen.allScreens()) do
+    if screen:frame().w / screen:frame().h > 2 then
+        -- 10 * 4 for ultra wide screen
+        grid.setGrid('10 * 4', screen)
+    else
+        if screen:frame().w < screen:frame().h then
+            -- 4 * 8 for vertically aligned screen
+            grid.setGrid('4 * 8', screen)
+        else
+            -- 8 * 4 for normal screen
+            grid.setGrid('8 * 4', screen)
         end
     end
-
-    frame.x = max.x
-    frame.y = frame.y
-    frame.h = frame.h
-    
-    window:setFrame(frame)
 end
 
-function rightHalfCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local max = screen:frame()
+-- Some constructors, just for programming
+function Cell(x, y, w, h)
+    return hs.geometry(x, y, w, h)
+end
 
-    local frameOrigin = window:frame()
+-- Bind new method to windowMeta
+function windowMeta.new()
+    local self = setmetatable(windowMeta, {
+        -- Treate table like a function
+        -- Event listener when windowMeta() is called
+        __call = function(cls, ...)
+            return cls.new(...)
+        end,
+    })
 
-    local frame3_4 = window:frame()
-    frame3_4.x = max.x + math.floor(max.w / 4 * 1)
-    frame3_4.w = math.floor(max.w / 4 * 3)
+    self.window = window.focusedWindow()
+    self.screen = self.window:screen()
+    self.windowGrid = grid.get(self.window)
+    self.screenGrid = grid.getGrid(self.screen)
+    self.windowFrame = self.window:frame()
 
-    local frame2_3 = window:frame()
-    frame2_3.x = max.x + math.floor(max.w / 3 * 1)
-    frame2_3.w = math.floor(max.w / 3 * 2)
+    return self
+end
 
-    local frame1_2 = window:frame()
-    frame1_2.x = max.x + math.floor(max.w / 2 * 1)
-    frame1_2.w = math.floor(max.w / 2 * 1)
 
-    local frame1_3 = window:frame()
-    frame1_3.x = max.x + math.floor(max.w / 3 * 2)
-    frame1_3.w = math.floor(max.w / 3 * 1)
+module.maximizeWindow = function()
+    local this = windowMeta.new()
+    hs.grid.maximizeWindow(this.window)
+end
 
-    local frame1_4 = window:frame()
-    frame1_4.x = max.x + math.floor(max.w / 4 * 3)
-    frame1_4.w = math.floor(max.w / 4 * 1)
+module.leftHalfWindow = function()
+    local this = windowMeta.new()
+    local cell = Cell(0, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+    grid.set(this.window, cell, this.screen)
+end
 
-    local all_frames = { frame3_4, frame2_3, frame1_2, frame1_3, frame1_4 }
-    local frame = all_frames[1]
-    for key, value in ipairs(all_frames) do
-        if frameEquals(frameOrigin, value) then
-            if key == #all_frames then
-                frame = all_frames[1]
-            else 
-                frame = all_frames[key + 1]
-            end
-            break
-        end
-    end
-
-    frame.y = frame.y
-    frame.h = frame.h
-    
-    window:setFrame(frame)
+module.rightHalfWindow = function()
+    local this = windowMeta.new()
+    local cell = Cell(0.5 * this.screenGrid.w, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+    grid.set(this.window, cell, this.screen)
 end
 
 function moveCurrentWindow(offsetX, offsetY)
@@ -105,150 +97,70 @@ function moveCurrentWindow(offsetX, offsetY)
     window:setFrame(frame)
 end
 
-function upHalfCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local max = screen:frame()
-
-    local frameOrigin = window:frame()
-
-    local frame2_3 = window:frame()
-    frame2_3.h = math.floor(max.h / 3 * 2)
-
-    local frame1_2 = window:frame()
-    frame1_2.h = math.floor(max.h / 2 * 1)
-
-    local frame1_3 = window:frame()
-    frame1_3.h = math.floor(max.h / 3 * 1)
-
-    local all_frames = { frame2_3, frame1_2, frame1_3 }
-    local frame = all_frames[1]
-    for key, value in ipairs(all_frames) do
-        if frameEquals(frameOrigin, value) then
-            if key == #all_frames then
-                frame = all_frames[1]
-            else 
-                frame = all_frames[key + 1]
-            end
-            break
-        end
-    end
-
-    frame.x = frame.x
-    frame.y = max.y
-    frame.w = frame.w
-    
-    window:setFrame(frame)
+module.upHalfWindow = function()
+    local this = windowMeta.new()
+    local cell = Cell(0, 0, this.screenGrid.w, 0.5 * this.screenGrid.h)
+    grid.set(this.window, cell, this.screen)
 end
 
-function downHalfCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local max = screen:frame()
-
-    local frameOrigin = window:frame()
-
-    local frame2_3 = window:frame()
-    frame2_3.y = max.y + math.floor(max.h / 3 * 1)
-    frame2_3.h = math.floor(max.h / 3 * 2)
-
-    local frame1_2 = window:frame()
-    frame1_2.y = max.y + math.floor(max.h / 2 * 1)
-    frame1_2.h = math.floor(max.h / 2 * 1)
-
-    local frame1_3 = window:frame()
-    frame1_3.y = max.y + math.floor(max.h / 3 * 2)
-    frame1_3.h = math.floor(max.h / 3 * 1)
-
-    local all_frames = { frame2_3, frame1_2, frame1_3 }
-    local frame = all_frames[1]
-    for key, value in ipairs(all_frames) do
-        if frameEquals(frameOrigin, value) then
-            if key == #all_frames then
-                frame = all_frames[1]
-            else 
-                frame = all_frames[key + 1]
-            end
-            break
-        end
-    end
-
-    frame.x = frame.x
-    frame.w = frame.w
-    
-    window:setFrame(frame)
+module.downHalfWindow = function()
+    local this = windowMeta.new()
+    local cell = Cell(0, 0.5 * this.screenGrid.h, this.screenGrid.w, 0.5 * this.screenGrid.h)
+    grid.set(this.window, cell, this.screen)
 end
 
-function frameEquals(frame1, frame2)
-    return frame1.x == frame2.x and frame1.y == frame2.y and frame1.w == frame2.w and frame1.h == frame2.h
+module.smallerWindow = function()
+    resizeFrame(0.9)
 end
 
-function smallerCurrentWindow() 
-    local window = hs.window.focusedWindow()
-    local frame = window:frame()
-
-    smallerFrame(frame)
-    window:setFrame(frame)
+module.largeWindow = function()
+    resizeFrame(1.1)
 end
 
-function largerCurrentWindow()
-    local window = hs.window.focusedWindow()
-    local frame = window:frame()
+function resizeFrame(ratio)
+    local this = windowMeta.new()
+    logger.v("origin x: " .. this.windowFrame.x)
+    logger.v("origin y: " .. this.windowFrame.y)
+    logger.v("origin w: " .. this.windowFrame.w)
+    logger.v("origin h: " .. this.windowFrame.h)
 
-    largerFrame(frame)
-    window:setFrame(frame)
+    local frame = {
+        x = this.windowFrame.x + this.windowFrame.w / 2 * (1 - ratio),
+        y = this.windowFrame.y + this.windowFrame.h / 2 * (1 - ratio),
+        w = this.windowFrame.w * ratio,
+        h = this.windowFrame.h * ratio,
+    }
+    logger.v("after x: " .. frame.x)
+    logger.v("after y: " .. frame.y)
+    logger.v("after w: " .. frame.w)
+    logger.v("after h: " .. frame.h)
+
+    this.window:setFrame(frame)
 end
 
-function smallerFrame(frame)
-    resizeFrame(frame, 0.9)
-end
-
-function largerFrame(frame)
-    resizeFrame(frame, 1.1)
-end
-
-function resizeFrame(frame, ratio)
-    frame.x = frame.x + frame.w / 2 * (1 - ratio)
-    frame.y = frame.y + frame.h / 2 * (1 - ratio)
-    frame.w = frame.w * ratio
-    frame.h = frame.h * ratio
-end
-
-function moveFrame(frame, offsetX, offsetY) 
+function moveFrame(frame, offsetX, offsetY)
     frame.x = frame.x + offsetX
     frame.y = frame.y + offsetY
 end
 
-function fitScreenHeight()
-    local window = hs.window.focusedWindow()
-    local frame = window:frame()
-
-    frame.y = window:screen():frame().y
-    frame.h = window:screen():frame().h
-
-    window:setFrame(frame)
+module.moveToLeftScreen = function()
+    local this = windowMeta.new()
+    this.window:moveOneScreenWest(false, true)
 end
 
-function fitScreenWidth()
-    local window = hs.window.focusedWindow()
-    local frame = window:frame()
-
-    frame.x = window:screen():frame().x
-    frame.w = window:screen():frame().w
-
-    window:setFrame(frame)
+module.moveToRightScreen = function()
+    local this = windowMeta.new()
+    this.window:moveOneScreenEast(false, true)
 end
 
-function moveToNextScreen()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local nextScreen = screen:next()
-    window:moveToScreen(nextScreen)
+module.moveToUpScreen = function()
+    local this = windowMeta.new()
+    this.window:moveOneScreenNorth(false, true)
 end
 
-function moveToPreviousScreen()
-    local window = hs.window.focusedWindow()
-    local screen = window:screen()
-    local nextScreen = screen:previous()
-    window:moveToScreen(nextScreen)
+module.moveToDownScreen = function()
+    local this = windowMeta.new()
+    this.window:moveOneScreenSouth(false, true)
 end
+
+return module

@@ -1,19 +1,17 @@
-mash = {
+KEYS = {
     app = { "alt" },
     movement = { "alt", "ctrl" },
     resize = { "alt", "shift" }
 }
 
 require("setup")
-require("layout")
+--require("layout")
 
 require("modules/apps")
-require("modules/windows")
-require("modules/screens")
 require("modules/layout")
 require("modules/mouse")
 
 require("keybind")
-require("urlbind")
+--require("urlbind")
 
 hs.alert.show('Hammerspoon config reload')

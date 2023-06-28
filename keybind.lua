@@ -1,106 +1,68 @@
+local wm = require("modules/windows")
+local hk = require("hs.hotkey")
+
 -- launch and focus applications with below shortkey
 hs.fnutils.each({
     { key = "`", app = "iTerm" },
-    -- { key = ",", app = "Quiver" },
     { key = ",", app = "Obsidian" },
     { key = ".", app = "Postman" },
     { key = "/", app = "Finder" },
     { key = ";", app = "Preview" },
     -- { key = "1", app = "Google Chrome" },
-    -- { key = "1", app = "Brave Browser"},
-    -- { key = "1", app = "Chromium"},
     { key = "1", app = "Microsoft Edge" },
     { key = "2", app = "Safari" },
     { key = "3", app = "Lark" },
     { key = "4", app = "WeChat" },
     { key = "5", app = "企业微信" },
+    { key = "6", app = "Feishu Meetings" },
     { key = "a", app = "iStatistica Pro" },
     { key = "d", app = "WebStorm" },
     { key = "e", app = "Sublime Text" },
     { key = "m", app = "Spotify" },
     { key = "n", app = "Telegram" },
-    { key = "b", app = "BearyChat" },
-    { key = "p", app = "PyCharm" },
+    { key = "p", app = "PyCharm Community Edition" },
     { key = "r", app = "Reminders" },
     { key = "s", app = "IntelliJ IDEA" },
-    -- { key = "s", app = "IntelliJ IDEA Community" },
-    -- { key = "s", app = "IntelliJ IDEA EAP" },
     { key = "t", app = "Tweetbot" },
     { key = "v", app = "Visual Studio Code" },
     -- { key = "w", app = "KeePassXC" },
     { key = "w", app = "Strongbox" },
 }, function(object)
-    launchApp(mash.app, object)
+    launchApp(KEYS.app, object)
 end)
+
+-- reload hammerspoon config
+hs.hotkey.bind(KEYS.app, "b", function()
+    hs.reload()
+end)
+
+local function windowBind(hyper, keyFuncTable)
+    hs.fnutils.each(keyFuncTable, function(object)
+        hk.bind(hyper, object.key, object.module)
+    end)
+end
 
 ------------------------------------------------------------
 -- Window resize
 ------------------------------------------------------------
 
-hs.hotkey.bind(mash.resize, "m", function()
-    maximizeCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "-", function()
-    smallerCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "=", function()
-    largerCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "left", function()
-    leftHalfCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "right", function()
-    rightHalfCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "up", function()
-    upHalfCurrentWindow()
-end)
-
-hs.hotkey.bind(mash.resize, "down", function()
-    downHalfCurrentWindow()
-end)
-
--- Window fit screen height
-hs.hotkey.bind(mash.resize, "h", function()
-    fitScreenHeight()
-end)
-
-hs.hotkey.bind(mash.resize, "w", function()
-    fitScreenWidth()
-end)
+windowBind(KEYS.resize, {
+    {key = "m", module = wm.maximizeWindow},
+    {key = "left", module = wm.leftHalfWindow},
+    {key = "right", module = wm.rightHalfWindow},
+    {key = "up", module = wm.upHalfWindow},
+    {key = "down", module = wm.downHalfWindow},
+    {key = "-", module = wm.smallerWindow},
+    {key = "=", module = wm.largeWindow},
+})
 
 ------------------------------------------------------------
--- Window movement 
+-- Window movement
 ------------------------------------------------------------
 
--- Window <
-hs.hotkey.bind(mash.movement, "h", function()
-    moveCurrentWindow(-100, 0)
-end)
--- Window >
-hs.hotkey.bind(mash.movement, "l", function()
-    moveCurrentWindow(100, 0)
-end)
--- Window ^
-hs.hotkey.bind(mash.movement, "k", function()
-    moveCurrentWindow(0, -100)
-end)
--- Window v
-hs.hotkey.bind(mash.movement, "j", function()
-    moveCurrentWindow(0, 100)
-end)
-
--- move to next screen
-hs.hotkey.bind(mash.movement, "n", function()
-    moveToNextScreen()
-end)
-
--- move to previous screen
-hs.hotkey.bind(mash.movement, "p", function()
-    moveToPreviousScreen()
-end)
+windowBind(KEYS.movement, {
+    {key = "h", module = wm.moveToLeftScreen},
+    {key = "l", module = wm.moveToRightScreen},
+    {key = "k", module = wm.moveToUpScreen},
+    {key = "j", module = wm.moveToDownScreen},
+})

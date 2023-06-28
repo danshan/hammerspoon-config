@@ -4,9 +4,6 @@ function launchApp(basicKey, object)
         local application = hs.application.get(object.app)
         if application ~= nil then
             local window = application:focusedWindow()
---            if window ~= nil then
---                moveToCenterOfWindow(window)
---            end
         end
     end)
 end
