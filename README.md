@@ -27,27 +27,34 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
 | `iTerm` | <kbd>⌥</kbd> | <kbd>~</kbd> |
-| `Craft` | <kbd>⌥</kbd> | <kbd>,</kbd> |
-| `Mail` | <kbd>⌥</kbd> | <kbd>.</kbd> |
+| `Notion` | <kbd>⌥</kbd> | <kbd>,</kbd> |
+| `Postman` | <kbd>⌥</kbd> | <kbd>.</kbd> |
 | `Finder` | <kbd>⌥</kbd> | <kbd>/</kbd> |
 | `Preview` | <kbd>⌥</kbd> | <kbd>;</kbd> |
-| `Google Chrome` | <kbd>⌥</kbd> | <kbd>1</kbd> |
+| `Microsoft Edge` | <kbd>⌥</kbd> | <kbd>1</kbd> |
 | `Safari` | <kbd>⌥</kbd> | <kbd>2</kbd> |
-| `Longchat` | <kbd>⌥</kbd> | <kbd>3</kbd> |
+| `Feishu / Lark` | <kbd>⌥</kbd> | <kbd>3</kbd> |
 | `WeChat` | <kbd>⌥</kbd> | <kbd>4</kbd> |
 | `iStatistica Pro` | <kbd>⌥</kbd> | <kbd>A</kbd> |
 | `WebStome` | <kbd>⌥</kbd> | <kbd>D</kbd> |
 | `Sublime Text` | <kbd>⌥</kbd> | <kbd>E</kbd> |
-| `Slack` | <kbd>⌥</kbd> | <kbd>N</kbd> |
-| `BearyChat` | <kbd>⌥</kbd> | <kbd>B</kbd> |
+| `Telegram` | <kbd>⌥</kbd> | <kbd>N</kbd> |
 | `Reminders` | <kbd>⌥</kbd> | <kbd>R</kbd> |
 | `IntelliJ IDEA` | <kbd>⌥</kbd> | <kbd>S</kbd> |
 | `Tweetbot` | <kbd>⌥</kbd> | <kbd>T</kbd> |
-| `KeyPassXC` | <kbd>⌥</kbd> | <kbd>W</kbd> |
+| `Visual Studio` | <kbd>⌥</kbd> | <kbd>V</kbd> |
+| `Strongbox` | <kbd>⌥</kbd> | <kbd>W</kbd> |
+
+* Relead hammerspoon config
+
+| Action | Chord | Activator |
+| -----------------|:-----:|:---------:|
+| Reload config | <kbd>⌥</kbd> | <kbd>B</kbd> |
+
 
 * Window Resize
 
-| Application Name | Chord | Activator |
+| Action | Chord | Activator |
 | -----------------|:-----:|:---------:|
 | `maximize` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>M</kbd> |
 | `smaller` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>-</kbd> |
@@ -56,19 +63,15 @@ Hammerspoon-config comes with a set of default keybindings. See installation for
 | `right half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>→</kbd> |
 | `up half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↑</kbd> |
 | `down half` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>↓</kbd> |
-| `fit screen height` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>H</kbd> |
-| `fit screen width` | <kbd>⌥</kbd> <kbd>⌘</kbd> | <kbd>W</kbd> |
 
 * Window Movement
 
 | Application Name | Chord | Activator |
 | -----------------|:-----:|:---------:|
-| move `<` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>H</kbd> |
-| move `>` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>L</kbd> |
-| move `^` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>K</kbd> |
-| move `v` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>J</kbd> |
-| move to `next screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>N</kbd> |
-| move to `previous screen` | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>P</kbd> |
+| move to the `left` screen | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>H</kbd> |
+| move to the `right` screen | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>L</kbd> |
+| move to the `up` screen | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>K</kbd> |
+| move to the `down` screen | <kbd>⌥</kbd><kbd>⌃</kbd> | <kbd>J</kbd> |
 
 ## Contribution
 
