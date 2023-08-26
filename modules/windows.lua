@@ -80,13 +80,15 @@ end
 
 module.leftHalfWindow = function()
     local this = windowMeta.new()
-    local cell = Cell(0, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+--    local cell = Cell(0, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+    local cell = Cell(0, this.windowGrid.y, 0.5 * this.screenGrid.w, this.windowGrid.h)
     grid.set(this.window, cell, this.screen)
 end
 
 module.rightHalfWindow = function()
     local this = windowMeta.new()
-    local cell = Cell(0.5 * this.screenGrid.w, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+--    local cell = Cell(0.5 * this.screenGrid.w, 0, 0.5 * this.screenGrid.w, this.screenGrid.h)
+    local cell = Cell(0.5 * this.screenGrid.w, this.windowGrid.y, 0.5 * this.screenGrid.w, this.windowGrid.h)
     grid.set(this.window, cell, this.screen)
 end
 
@@ -99,13 +101,15 @@ end
 
 module.upHalfWindow = function()
     local this = windowMeta.new()
-    local cell = Cell(0, 0, this.screenGrid.w, 0.5 * this.screenGrid.h)
+--    local cell = Cell(0, 0, this.screenGrid.w, 0.5 * this.screenGrid.h)
+    local cell = Cell(this.windowGrid.x, 0, this.windowGrid.w, 0.5 * this.screenGrid.h)
     grid.set(this.window, cell, this.screen)
 end
 
 module.downHalfWindow = function()
     local this = windowMeta.new()
-    local cell = Cell(0, 0.5 * this.screenGrid.h, this.screenGrid.w, 0.5 * this.screenGrid.h)
+--    local cell = Cell(0, 0.5 * this.screenGrid.h, this.screenGrid.w, 0.5 * this.screenGrid.h)
+    local cell = Cell(this.windowGrid.x, 0.5 * this.screenGrid.h, this.windowGrid.w, 0.5 * this.screenGrid.h)
     grid.set(this.window, cell, this.screen)
 end
 
