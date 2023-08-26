@@ -20,7 +20,7 @@ hs.fnutils.each({
     { key = "e", app = "Sublime Text" },
     { key = "m", app = "Spotify" },
     { key = "n", app = "Telegram" },
-    { key = "p", app = "PyCharm Community Edition" },
+    { key = "p", app = "PyCharm CE" },
     { key = "r", app = "Reminders" },
     { key = "s", app = "IntelliJ IDEA" },
     { key = "t", app = "Tweetbot" },
