@@ -3,7 +3,7 @@ local hk = require("hs.hotkey")
 
 -- launch and focus applications with below shortkey
 hs.fnutils.each({
-    { key = "`", app = "iTerm" },
+    { key = "`", app = "warp" },
     { key = ",", app = "Notion" },
     { key = ".", app = "Postman" },
     { key = "/", app = "Finder" },
