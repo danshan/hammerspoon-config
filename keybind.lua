@@ -9,7 +9,7 @@ hs.fnutils.each({
     { key = "/", app = "Finder" },
     { key = ";", app = "Preview" },
     -- { key = "1", app = "Google Chrome" },
-    { key = "1", app = "Microsoft Edge" },
+    { key = "1", app = "Vivaldi" },
     { key = "2", app = "Safari" },
     { key = "3", app = "Lark" },
     { key = "4", app = "WeChat" },
