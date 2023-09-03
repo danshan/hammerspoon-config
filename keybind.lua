@@ -49,9 +49,13 @@ end
 windowBind(KEYS.resize, {
     {key = "m", module = wm.maximizeWindow},
     {key = "left", module = wm.leftHalfWindow},
+    {key = "h", module = wm.leftHalfWindow},
     {key = "right", module = wm.rightHalfWindow},
+    {key = "l", module = wm.rightHalfWindow},
     {key = "up", module = wm.upHalfWindow},
+    {key = "k", module = wm.upHalfWindow},
     {key = "down", module = wm.downHalfWindow},
+    {key = "j", module = wm.downHalfWindow},
     {key = "-", module = wm.smallerWindow},
     {key = "=", module = wm.largeWindow},
 })
