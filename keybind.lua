@@ -26,7 +26,7 @@ hs.fnutils.each({
 	{ key = "t", app = "Tweetbot" },
 	{ key = "v", app = "Visual Studio Code" },
 	-- { key = "w", app = "KeePassXC" },
-	{ key = "w", app = "Strongbox" },
+	{ key = "w", app = "Bitwarden" },
 }, function(object)
 	launchApp(KEYS.app, object)
 end)
