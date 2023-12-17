@@ -8,7 +8,6 @@ hs.fnutils.each({
 	{ key = ".", app = "Postman" },
 	{ key = "/", app = "Finder" },
 	{ key = ";", app = "Preview" },
-	-- { key = "1", app = "Google Chrome" },
 	{ key = "1", app = "Vivaldi" },
 	{ key = "2", app = "Safari" },
 	{ key = "3", app = "Feishu" },
@@ -26,7 +25,8 @@ hs.fnutils.each({
 	{ key = "t", app = "Tweetbot" },
 	{ key = "v", app = "Visual Studio Code" },
 	-- { key = "w", app = "KeePassXC" },
-	{ key = "w", app = "Strongbox" },
+	-- { key = "w", app = "Strongbox" },
+	{ key = "w", app = "Bitwarden" },
 }, function(object)
 	launchApp(KEYS.app, object)
 end)
