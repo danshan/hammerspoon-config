@@ -5,7 +5,7 @@ local hk = require("hs.hotkey")
 hs.fnutils.each({
 	{ key = "`", app = "iTerm" },
 	{ key = ",", app = "Notion" },
-	{ key = ".", app = "Postman" },
+	{ key = ".", app = "Bruno" },
 	{ key = "/", app = "Finder" },
 	{ key = ";", app = "Preview" },
 	{ key = "1", app = "Vivaldi" },
@@ -17,7 +17,7 @@ hs.fnutils.each({
 	{ key = "a", app = "iStatistica Pro" },
 	{ key = "d", app = "WebStorm" },
 	{ key = "e", app = "Sublime Text" },
-	{ key = "m", app = "Spotify" },
+	{ key = "m", app = "QQMusic" },
 	{ key = "n", app = "Telegram" },
 	{ key = "p", app = "PyCharm CE" },
 	{ key = "r", app = "Reminders" },
@@ -27,6 +27,7 @@ hs.fnutils.each({
 	-- { key = "w", app = "KeePassXC" },
 	-- { key = "w", app = "Strongbox" },
 	{ key = "w", app = "Bitwarden" },
+	{ key = "z", app = "极空间" },
 }, function(object)
 	launchApp(KEYS.app, object)
 end)
