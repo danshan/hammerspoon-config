@@ -17,7 +17,6 @@ hs.fnutils.each({
 	{ key = "a", app = "iStatistica Pro" },
 	{ key = "d", app = "WebStorm" },
 	{ key = "e", app = "Sublime Text" },
-	-- 	{ key = "k", app = "Poe" },
 	{ key = "m", app = "QQMusic" },
 	{ key = "n", app = "Telegram" },
 	{ key = "p", app = "PyCharm CE" },
